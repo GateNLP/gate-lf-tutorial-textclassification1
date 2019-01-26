@@ -1,0 +1,16 @@
+<LF>
+
+<NGRAM>
+<NUMBER>1</NUMBER>
+<TYPE>Token</TYPE>
+<FEATURE>string</FEATURE>
+</NGRAM>
+
+<NGRAM>
+<NUMBER>2</NUMBER>
+<TYPE>Token</TYPE>
+<FEATURE>string</FEATURE>
+</NGRAM>
+
+
+</LF>
