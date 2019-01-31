@@ -14,11 +14,6 @@
       </gate.creole.Plugin-Maven>
       <gate.creole.Plugin-Maven>
         <group>uk.ac.gate.plugins</group>
-        <artifact>groovy</artifact>
-        <version>8.5</version>
-      </gate.creole.Plugin-Maven>
-      <gate.creole.Plugin-Maven>
-        <group>uk.ac.gate.plugins</group>
         <artifact>format-fastinfoset</artifact>
         <version>8.5</version>
       </gate.creole.Plugin-Maven>
@@ -37,6 +32,12 @@
         <group>uk.ac.gate.plugins</group>
         <artifact>corpusstats</artifact>
         <version>1.3-SNAPSHOT</version>
+        <downloadListeners/>
+      </gate.creole.Plugin-Maven>
+      <gate.creole.Plugin-Maven>
+        <group>uk.ac.gate.plugins</group>
+        <artifact>java</artifact>
+        <version>0.5-SNAPSHOT</version>
         <downloadListeners/>
       </gate.creole.Plugin-Maven>
     </localList>
@@ -63,10 +64,16 @@
       <localList>
         <gate.util.persistence.AnalyserRunningStrategyPersistence>
           <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
           <pr class="gate.util.persistence.LanguageAnalyserPersistence">
             <runtimeParams class="gate.util.persistence.MapPersistence">
               <mapType>gate.util.SimpleFeatureMapImpl</mapType>
               <localMap>
+                <entry>
+                  <string>statsList</string>
+                  <string>tfidf,wtfidf,ltfidf,df,nDocs,ctf,cntf,cwtf</string>
+                </entry>
                 <entry>
                   <string>dataFileUrl</string>
                   <gate.util.persistence.PersistenceManager-URLHolder>
@@ -87,12 +94,120 @@
             </features>
           </pr>
         </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>scriptParams</string>
+                  <gate.util.persistence.MapPersistence>
+                    <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                    <localMap>
+                      <entry>
+                        <string>featureName4Value</string>
+                        <string>mindf5tfidf</string>
+                      </entry>
+                      <entry>
+                        <string>mindf</string>
+                        <string>5</string>
+                      </entry>
+                      <entry>
+                        <string>scoreFeature</string>
+                        <string>cs_tfidf</string>
+                      </entry>
+                      <entry>
+                        <string>maxrdf</string>
+                        <string>0.5</string>
+                      </entry>
+                    </localMap>
+                  </gate.util.persistence.MapPersistence>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>com.jpetrak.gate.java.JavaScriptingPR</resourceType>
+            <resourceName>Java:mindf5tfidf</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>javaProgramUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>$relpath$java/setFilteredByStats.java</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
+        <gate.util.persistence.AnalyserRunningStrategyPersistence>
+          <runMode>1</runMode>
+          <featureName></featureName>
+          <featureValue></featureValue>
+          <pr class="gate.util.persistence.LanguageAnalyserPersistence">
+            <runtimeParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>scriptParams</string>
+                  <gate.util.persistence.MapPersistence>
+                    <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+                    <localMap>
+                      <entry>
+                        <string>featureName4Value</string>
+                        <string>mindf5v1</string>
+                      </entry>
+                      <entry>
+                        <string>mindf</string>
+                        <string>5</string>
+                      </entry>
+                      <entry>
+                        <string>maxrdf</string>
+                        <string>0.5</string>
+                      </entry>
+                      <entry>
+                        <string>scoreValue</string>
+                        <string>1.0</string>
+                      </entry>
+                    </localMap>
+                  </gate.util.persistence.MapPersistence>
+                </entry>
+              </localMap>
+            </runtimeParams>
+            <resourceType>com.jpetrak.gate.java.JavaScriptingPR</resourceType>
+            <resourceName>Java:mindf5v1</resourceName>
+            <initParams class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap>
+                <entry>
+                  <string>javaProgramUrl</string>
+                  <gate.util.persistence.PersistenceManager-URLHolder>
+                    <urlString>$relpath$java/setFilteredByStats.java</urlString>
+                  </gate.util.persistence.PersistenceManager-URLHolder>
+                </entry>
+              </localMap>
+            </initParams>
+            <features class="gate.util.persistence.MapPersistence">
+              <mapType>gate.util.SimpleFeatureMapImpl</mapType>
+              <localMap/>
+            </features>
+          </pr>
+        </gate.util.persistence.AnalyserRunningStrategyPersistence>
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </strategiesList>
     <prList class="gate.util.persistence.CollectionPersistence">
       <localList>
         <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[2]/pr"/>
+        <gate.util.persistence.LanguageAnalyserPersistence reference="../../../strategiesList/localList/gate.util.persistence.AnalyserRunningStrategyPersistence[3]/pr"/>
       </localList>
       <collectionType>java.util.ArrayList</collectionType>
     </prList>
